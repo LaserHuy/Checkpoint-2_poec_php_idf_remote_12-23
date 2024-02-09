@@ -8,7 +8,7 @@ class Container
     public const MEDIUM = 5;
     public const LARGE = 8;
 
-    public function inbox(int $numberCake): array
+    public function inbox($numberCake): array
     {
         // Calculate the number of containers for each size
         $numLarge = (int) ($numberCake / self::LARGE);
