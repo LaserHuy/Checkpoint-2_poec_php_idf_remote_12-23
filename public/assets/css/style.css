@@ -106,7 +106,7 @@ h1 {
     margin-bottom: var(--spacing);
 }
 
-.form-group .error-message {
+.error-message {
     color: red;
     margin-top: var(--spacing);
     display: flex;
