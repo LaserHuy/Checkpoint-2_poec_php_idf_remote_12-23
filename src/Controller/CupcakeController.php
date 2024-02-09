@@ -52,9 +52,9 @@ class CupcakeController extends AbstractController
         ]);
     }
 
-    public function show()
+    public function show(int $id)
     {
-        $cupcake = (new CupcakeManager())->getId($_GET['id']);
+        $cupcake = (new CupcakeManager())->getId($id);
 
         return $this->twig->render('Cupcake/show.html.twig', [
             'cupcake' => $cupcake
