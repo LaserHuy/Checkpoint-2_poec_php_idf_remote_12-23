@@ -19,7 +19,7 @@ class LogisticController extends AbstractController
             // TODO call inbox() method of Container class with $cupcakeNumber as parameter
             // TODO affect the result of inbox() method to $inbox variable
             if (empty($error)) {
-            $containers = $containers->inbox($cupcakeNumber);
+                $containers = $containers->inbox($cupcakeNumber);
             }
         }
         return $this->twig->render('Logistic/index.html.twig', [
