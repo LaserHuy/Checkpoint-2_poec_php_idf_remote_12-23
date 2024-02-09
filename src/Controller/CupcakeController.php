@@ -92,10 +92,10 @@ class CupcakeController extends AbstractController
     {
         // Initialize the cupcake manager
         $cupcakeManager = new CupcakeManager();
-        
+
         // Retrieve the cupcake details using the provided $id
         $cupcake = $cupcakeManager->selectOneById($id);
-        
+
         // Render the cupcake details view
         return $this->twig->render('Cupcake/_cupcake.html.twig', ['cupcake' => $cupcake]);
     }
