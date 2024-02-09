@@ -4,5 +4,13 @@
     <div class="main-container">
         <h1>My accessories</h1>
         {# TODO Display all accessories here #}
+        {% for accessory in accessories %}
+        <div>
+            <div>
+                {{ accessory.name }}
+            </div>
+            <img src={{ accessory.url }} alt={{ accessory.name }}>
+        </div>
+        {% endfor %}
     </div>
 {% endblock %}

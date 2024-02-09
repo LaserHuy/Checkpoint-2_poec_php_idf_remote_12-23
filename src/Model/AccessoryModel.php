@@ -37,6 +37,4 @@ class AccessoryModel
     {
         $this->url = $url;
     }
-
-
 }
