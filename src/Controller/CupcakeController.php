@@ -42,6 +42,9 @@ class CupcakeController extends AbstractController
         $cupcakeManager = new CupcakeManager();
         $cupcake = $cupcakeManager->selectOneById($id);
 
-        return $this->twig->render('Cupcake/show.html.twig', ['cupcake' => $cupcake]);
+        $accessoryManager = new AccessoryManager();
+        $accessory = $accessoryManager->selectOneById($cupcake['accessory_id']);
+
+        return $this->twig->render('Cupcake/show.html.twig', ['cupcake' => $cupcake, 'accessory' => $accessory]);
     }
 }
