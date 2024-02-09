@@ -1,8 +1,22 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <div class="main-container">
-        <h1>My accessories</h1>
-        {# TODO Display all accessories here #}
-    </div>
+	<div class="main-container">
+		<h1>My accessories</h1>
+		{% for accessory in accessories %}
+			<div id="products" class="row list-group">
+				<div class="item col-xs-4 col-lg-4">
+					<div class="thumbnail">
+						<img class="thumbnail" src="{{ accessory.URL }}" alt="{{ accessory.NAME }}"/>
+						<div class="caption">
+							<h4 class="group inner list-group-item-heading">
+								{{ accessory.NAME }}</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+            		{# {{dump (accessory)}}; #}
+			{# TODO Display all accessories here #}
+		{% endfor %}
+	</div>
 {% endblock %}
