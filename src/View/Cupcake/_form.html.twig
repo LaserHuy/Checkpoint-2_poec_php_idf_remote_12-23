@@ -18,7 +18,9 @@
     <div class="form-group">
         <label for="accessory">Accessory</label>
         <select name="accessory" id="accessory">
-            {# TODO Add accessories options here #}
+            {% for accessory in accessories %}
+            <option value="{{ accessory.accessoryId }}">{{ accessory.accessoryName }}</option>
+            {% endfor %}
         </select>
 
     </div>

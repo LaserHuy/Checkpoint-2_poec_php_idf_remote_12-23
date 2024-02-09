@@ -3,9 +3,9 @@
 
 {% block content %}
     <div class="main-container">
-        <h1>My cupcakes</h1>
+        {% if cupcake is not null %}
+        <h1>My cupcake {{ cupcake.cupcakeName }}</h1>
         <div class="cupcake-list" id="cupcake-list">
-        {% for cupcake in cupcakes %}
             <div class="cupcake-item">
                 <a href="/cupcake/show?id={{ cupcake.cupcakeId }}">
                     {% include 'Cupcake/_cupcake.html.twig' %}
@@ -13,9 +13,10 @@
             </div>
         {% else %}
             <div>
-                You have no cupcake yet !
+                <p>You have no cupcake yet at this id !</p>
+                <a href="/cupcake/list">Go back to the list</a>
             </div>
-        {% endfor %}
+        {% endif %}
         </div>
     </div>
 {% endblock %}
