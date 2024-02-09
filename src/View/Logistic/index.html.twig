@@ -12,9 +12,10 @@
 		<h2>Results </h2>
 		<ul class="results">
 			{# TODO : Using result of inbox() method, display the number of boxes (L, M, S) #}
-			<li>Number of S boxes: </li>
-			<li>Number of M boxes: </li>
-			<li>Number of L boxes: </li>
+
+			<li>Number of S boxes: {{ containers[2] }}</li>
+            <li>Number of M boxes: {{ containers[1] }}</li>
+            <li>Number of L boxes: {{ containers[0] }}</li>
 		</ul>
 	</div>
 {% endblock %}
