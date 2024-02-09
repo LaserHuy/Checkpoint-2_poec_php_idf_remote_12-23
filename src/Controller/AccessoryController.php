@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\AccessoryManager;
+
 /**
  * Class AccessoryController
  *
@@ -19,6 +21,8 @@ class AccessoryController extends AbstractController
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $newAccessory = array_map('trim', $_POST);
+            (new AccessoryManager())->add($newAccessory);
             //TODO Add your code here to create a new accessory
             header('Location:/accessory/list');
         }
@@ -36,6 +40,7 @@ class AccessoryController extends AbstractController
     public function list()
     {
         //TODO Add your code here to retrieve all accessories
+        
         return $this->twig->render('Accessory/list.html.twig');
     }
 }
