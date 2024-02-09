@@ -22,7 +22,7 @@ class CupcakeController extends AbstractController
     public function add()
     {
         // Initialize the cupcake manager
-        
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //TODO Add your code here to create a new cupcake
             header('Location:/cupcake/list');

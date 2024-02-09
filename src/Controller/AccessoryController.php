@@ -46,7 +46,6 @@ class AccessoryController extends AbstractController
                 ];
                 $accessoryManager = $accessoryManager->insert($accessory);
                 header('Location:/accessory/list');
-                exit; // Stop further execution
             }
         }
         return $this->twig->render('Accessory/add.html.twig', ['errors' => $errors]);
