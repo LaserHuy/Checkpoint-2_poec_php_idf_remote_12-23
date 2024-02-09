@@ -73,7 +73,7 @@ class CupcakeController extends AbstractController
         // Initialize filtered cupcakes
         $filteredCupcakes = $cupcakes;
 
-        $accessory_id = isset($_GET['accessory']) ? intval($_GET['accessory']) : null;
+        $accessoryId = isset($_GET['accessory']) ? intval($_GET['accessory']) : null;
         // Check if accessory filter is set
         if (isset($_GET['accessory']) && $_GET['accessory'] !== 'all') {
             $filteredCupcakes = array_filter($cupcakes, function ($cupcake) {
@@ -84,7 +84,7 @@ class CupcakeController extends AbstractController
         return $this->twig->render('Cupcake/list.html.twig', [
             'accessories' => $accessories,
             'cupcakes' => $filteredCupcakes,
-            'accessory_id' => $accessory_id,
+            'accessory_id' => $accessoryId,
         ]);
     }
 }
