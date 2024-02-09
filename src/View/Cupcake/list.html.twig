@@ -4,6 +4,17 @@
 {% block content %}
     <div class="main-container">
         <h1>My cupcakes</h1>
+        {# filter by accessories #}
+        <div class="accessory-filters">
+            <form class="accessory-filters" action="{{ app.request.uri }}" method="GET">
+                <a href="/cupcake/list" class="filter-button {% if accessory_id is null %}active{% endif %}">All</a>
+                {% for accessory in accessories %}
+                    <button class="filter-button {% if accessory_id == accessory.id %}active{% endif %}" name="accessory" value="{{ accessory.id }}">
+                        {{ accessory.name }}
+                    </button>
+                {% endfor %}
+            </form>
+        </div>
         <div class="cupcake-list" id="cupcake-list">
         {% for cupcake in cupcakes %}
             <div class="cupcake-item">

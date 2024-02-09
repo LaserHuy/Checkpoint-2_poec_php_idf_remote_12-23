@@ -175,6 +175,31 @@ input[type="color"] {
     background-image: url('../images/starburst.png');
 }
 
+.accessory-filters {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: var(--spacing-xl);
+    gap: var(--spacing);
+}
+
+.filter-button {
+    padding: var(--spacing);
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--light);
+    border: 1px solid var(--light);
+    font-family: var(--title-font);
+    font-weight: 600;
+    color: var(--dark);
+    background: rgba(166, 72, 173, 0.582);
+}
+
+.filter-button.active {
+    background-color: var(--main-color);
+    color: var(--light);
+}
+
 .instructions img {
     margin-top: var(--spacing-lg);
     width: calc(var(--container-width) * 2 / 3);

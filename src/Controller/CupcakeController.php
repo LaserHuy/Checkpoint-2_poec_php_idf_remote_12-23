@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Service\Container;
 use App\Model\CupcakeManager;
+use App\Model\AccessoryManager;
 
 /**
  * Class CupcakeController
@@ -47,7 +48,7 @@ class CupcakeController extends AbstractController
         }
         //TODO retrieve all accessories for the select options
         return $this->twig->render('Cupcake/add.html.twig', [
-            'errors' => $errors, 
+            'errors' => $errors,
         ]);
     }
 
@@ -62,12 +63,28 @@ class CupcakeController extends AbstractController
     public function list()
     {
         //TODO Retrieve all cupcakes
+        // Initialize the accessory manager
+        $accessoryManager = new AccessoryManager();
+        $accessories = $accessoryManager->selectAll();
         // Initialize the cupcake manager
         $cupcakeManager = new CupcakeManager();
-        $cupcakes = $cupcakeManager->selectAll('name');
+        $cupcakes = $cupcakeManager->selectAll();
+
+        // Initialize filtered cupcakes
+        $filteredCupcakes = $cupcakes;
+
+        $accessory_id = isset($_GET['accessory']) ? intval($_GET['accessory']) : null;
+        // Check if accessory filter is set
+        if (isset($_GET['accessory']) && $_GET['accessory'] !== 'all') {
+            $filteredCupcakes = array_filter($cupcakes, function ($cupcake) {
+                return $cupcake['accessory_id'] == $_GET['accessory'];
+            });
+        }
 
         return $this->twig->render('Cupcake/list.html.twig', [
-            'cupcakes' => $cupcakes
+            'accessories' => $accessories,
+            'cupcakes' => $filteredCupcakes,
+            'accessory_id' => $accessory_id,
         ]);
     }
 }
