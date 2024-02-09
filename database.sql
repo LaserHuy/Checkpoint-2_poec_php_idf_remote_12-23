@@ -82,9 +82,9 @@ CREATE TABLE IF NOT EXISTS `cupcake` (
 
 -- Insert data into the accessory table
 INSERT INTO `accessory` (`name`, `url`) VALUES
-('Sprinkles', 'https://example.com/sprinkles'),
-('Chocolate chips', 'https://example.com/chocolate-chips'),
-('Frosting', 'https://example.com/frosting');
+('Cherry', 'http://images.innoveduc.fr/php_parcours/cp2/cherry.png'),
+('Chocolate', 'http://images.innoveduc.fr/php_parcours/cp2/chocolate.png'),
+('Donut', 'http://images.innoveduc.fr/php_parcours/cp2/donut.png');
 
 -- Insert data into the cupcake table
 INSERT INTO `cupcake` (`name`, `color1`, `color2`, `color3`, `accessory_id`, `created_at`) VALUES
