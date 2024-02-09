@@ -30,7 +30,7 @@ class CupcakeController extends AbstractController
         }
         //TODO retrieve all accessories for the select options
         $accessories = (new AccessoryManager())->selectAll();
-        return $this->twig->render('Cupcake/add.html.twig',[
+        return $this->twig->render('Cupcake/add.html.twig', [
             'accessories' => $accessories
         ]);
     }
@@ -46,6 +46,9 @@ class CupcakeController extends AbstractController
     public function list()
     {
         //TODO Retrieve all cupcakes
-        return $this->twig->render('Cupcake/list.html.twig');
+        $cupcakes = (new CupcakeManager())->getAll();
+        return $this->twig->render('Cupcake/list.html.twig', [
+            'cupcakes' => $cupcakes
+        ]);
     }
 }
