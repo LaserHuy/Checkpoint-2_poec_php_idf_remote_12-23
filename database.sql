@@ -57,3 +57,37 @@ MODIFY
   /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
   /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
   /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+  -- Create the accessory table
+CREATE TABLE IF NOT EXISTS `accessory` (
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `name` VARCHAR(255) NOT NULL,
+    `url` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_unicode_ci;
+
+-- Create the cupcake table
+CREATE TABLE IF NOT EXISTS `cupcake` (
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `name` VARCHAR(255) NOT NULL,
+    `color1` CHAR(7) NOT NULL,
+    `color2` CHAR(7),
+    `color3` CHAR(7),
+    `accessory_id` INT,
+    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`accessory_id`) REFERENCES `accessory`(`id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_unicode_ci;
+
+
+-- Insert data into the accessory table
+INSERT INTO `accessory` (`name`, `url`) VALUES
+('Sprinkles', 'https://example.com/sprinkles'),
+('Chocolate chips', 'https://example.com/chocolate-chips'),
+('Frosting', 'https://example.com/frosting');
+
+-- Insert data into the cupcake table
+INSERT INTO `cupcake` (`name`, `color1`, `color2`, `color3`, `accessory_id`, `created_at`) VALUES
+('Vanilla Cupcake', '#ffffff', '#ffcc00', '#ff99cc', 1, NOW()),
+('Chocolate Cupcake', '#663300', '#cc6600', '#996633', 2, NOW()),
+('Strawberry Cupcake', '#ff99cc', '#ffcccc', '#cc0033', 3, NOW());

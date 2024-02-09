@@ -106,6 +106,15 @@ h1 {
     margin-bottom: var(--spacing);
 }
 
+.form-group .error-message {
+    color: red;
+    margin-top: var(--spacing);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+}
+
 label, input, select {
     display: inline-block;
 }
@@ -195,8 +204,14 @@ tbody tr:nth-child(odd) {
     background-color: var(--secondary-color);
 }
 
+tr th, tr td {
+    padding: var(--spacing);
+    border: 1px solid var(--dark);
+}
+
 td {
     padding: var(--spacing);
+    border: 1px solid var(--dark);
 }
 
 td input {
@@ -205,6 +220,16 @@ td input {
     padding: var(--spacing);
 }
 
+.accessory {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.accessory img {
+    width: 50px;
+    height: 50px;
+}
 
 tfoot th:first-child{
     text-align: right;

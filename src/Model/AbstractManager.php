@@ -56,4 +56,20 @@ abstract class AbstractManager
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
+
+    /**
+     * Insert a row in the database
+     */
+    public function insert(array $data): int
+    {
+        $keys = array_keys($data);
+        $columns = implode(', ', $keys);
+        $values = ':' . implode(', :', $keys);
+
+        $query = "INSERT INTO " . static::TABLE . " ($columns) VALUES ($values)";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute($data);
+
+        return (int)$this->pdo->lastInsertId();
+    }
 }

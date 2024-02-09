@@ -4,5 +4,17 @@
     <div class="main-container">
         <h1>My accessories</h1>
         {# TODO Display all accessories here #}
+        <table class="accessory">
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+            </tr>
+            {% for accessory in accessories %}
+                <tr>
+                    <td>{{ accessory.name }}</td>
+                    <td><img class="image" src="{{ accessory.url }}" alt=""></td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
 {% endblock %}
