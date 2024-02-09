@@ -1,20 +1,17 @@
 @import "cupcake.css";
-
 :root {
     --default-cream-color: #ffe868;
-    --background-color:#FAC564;
-    --main-color:#DE467C;
+    --background-color: #FAC564;
+    --main-color: #DE467C;
     --secondary-color: #9D9CDF;
     --light: #fffef7;
     --dark: #2a2929;
     --shadow: #8d8b86;
     --light-shadow: rgba(255, 255, 255, 0.3);
     --cupcake-basis-color: #ffd180;
-
     --text-font: 'Cantarell', sans-serif;
     --title-font: "Amatic SC", sans-serif;
-
-    --container-width:800px;
+    --container-width: 800px;
     --spacing: .5rem;
     --spacing-lg: calc(var(--spacing) * 2);
     --spacing-xl: calc(var(--spacing) * 4);
@@ -24,10 +21,14 @@
     box-sizing: border-box;
 }
 
+.alert {
+    color: red;
+}
+
 body {
     background-color: var(--background-color);
     font-family: var(--text-font);
-    font-size:14pt;
+    font-size: 14pt;
     display: flex;
     justify-content: center;
 }
@@ -72,10 +73,10 @@ h1 {
 }
 
 @-webkit-keyframes rotating {
-    from{
+    from {
         transform: rotate(0deg);
     }
-    to{
+    to {
         transform: rotate(360deg);
     }
 }
@@ -106,7 +107,9 @@ h1 {
     margin-bottom: var(--spacing);
 }
 
-label, input, select {
+label,
+input,
+select {
     display: inline-block;
 }
 
@@ -115,7 +118,7 @@ label {
     text-align: right;
 }
 
-label + input + select {
+label+input+select {
     width: 30%;
     margin: 0 30% 0 4%;
 }
@@ -144,16 +147,16 @@ input[type="color"] {
     text-align: center;
 }
 
-.cupcake-list{
+.cupcake-list {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
 .cupcake-item {
-    margin-bottom:var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
     transition: transform 0.3s ease-in-out;
-    position:relative;
+    position: relative;
 }
 
 .cupcake-item:hover::before {
@@ -205,7 +208,6 @@ td input {
     padding: var(--spacing);
 }
 
-
-tfoot th:first-child{
+tfoot th:first-child {
     text-align: right;
 }

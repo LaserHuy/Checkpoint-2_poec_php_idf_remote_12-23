@@ -1,25 +1,34 @@
 <form method="post">
+<pre>
+    {{ dump(errors) }}
+</pre>
     <div class="form-group">
         <label for="name">Cupcake name</label>
         <input type="text" name="name" id="name">
     </div>
+    <p class="alert">{{errors.name}} </p>
     <div class="form-group">
         <label for="color1">Color first cream</label>
         <input type="color" name="color1" id="color1">
     </div>
+    <p class="alert">{{errors.color1}} </p>
     <div class="form-group">
         <label for="color2">Color second cream</label>
         <input type="color" name="color2" id="color2">
     </div>
+    <p class="alert">{{errors.color2}} </p>
     <div class="form-group">
         <label for="color3">Color third cream</label>
         <input type="color" name="color3" id="color3">
     </div>
+    <p class="alert">{{errors.color3}} </p>
     <div class="form-group">
         <label for="accessory">Accessory</label>
         <select name="accessory" id="accessory">
-            {# TODO Add accessories options here #}
+           <option value="3" selected>No Accessory</option>
+            
         </select>
+        {{errors.accessory_id}}
 
     </div>
     <div class="form-btn">

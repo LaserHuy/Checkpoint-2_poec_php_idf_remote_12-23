@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+use App\Model\AccessoryManager;
 
 /**
  * Class AccessoryController
@@ -18,12 +19,35 @@ class AccessoryController extends AbstractController
      */
     public function add()
     {
+
+        $accessorymanager= new AccessoryManager();
+        $errors = []; 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //TODO Add your code here to create a new accessory
-            header('Location:/accessory/list');
+           $accessoires=array_map('trim',$_POST);
+                  
+           $validation = [
+            'name' => ['message' => 'entrer le nom de accessoires svp', 'pattern' => '/^[a-zA-Z]*$/'],
+            'url' => ['message' => 'entrer le lien de accessoires svp', 'pattern' => "/^(http|https):\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/\S*)?$/"]
+        ];
+
+        $errors = [];
+
+        foreach($validation as $key => $value){
+            if(empty($accessoires[$key]) || (isset($value['pattern']) && !preg_match($value['pattern'], $accessoires[$key]))){
+                $errors[$key] = $value['message'];
+            }   
         }
-        return $this->twig->render('Accessory/add.html.twig');
-    }
+
+            if(empty($errors)){
+                $accessorymanager->insert($accessoires);
+                header('Location:/accessory/list');
+                exit();
+            }
+            }
+            
+            return $this->twig->render('Accessory/add.html.twig', ['errors' => $errors]);  
+        }
 
     /**
      * Display list of accessories
@@ -36,6 +60,9 @@ class AccessoryController extends AbstractController
     public function list()
     {
         //TODO Add your code here to retrieve all accessories
-        return $this->twig->render('Accessory/list.html.twig');
+        $allaccessoires= new AccessoryManager();
+        $accessoires=$allaccessoires->selectAll();
+
+        return $this->twig->render('Accessory/list.html.twig', ['accessoires' => $accessoires]);
     }
 }
