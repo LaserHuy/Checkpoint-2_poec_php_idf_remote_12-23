@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %} {% block content %}
+<div class="main-container">
+    <h1>My cupcake</h1>
+    <div class="cupcake-show" id="cupcake-show">
+        <div class="cupcake-item">
+            <p>{{ cupcake.id }}. {{ cupcake.name }}</p>
+
+            {% include 'Cupcake/_cupcake.html.twig' %}
+        </div>
+    </div>
+</div>
+{% endblock %}

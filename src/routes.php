@@ -13,7 +13,7 @@ return [
     'accessory/list' => ['AccessoryController', 'list'],
     'cupcake/add'    => ['CupcakeController', 'add'],
     'cupcake/list'    => ['CupcakeController', 'list'],
+    'cupcake/show'    => ['CupcakeController', 'show', ['id']],
     'logistics'    => ['LogisticController', 'index'],
     'cupcake-day' => ['CheckoutController', 'index']
-    //TODO add a cupcake/show route with a query param id
 ];
