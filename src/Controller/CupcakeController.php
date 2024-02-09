@@ -51,4 +51,13 @@ class CupcakeController extends AbstractController
             'cupcakes' => $cupcakes
         ]);
     }
+
+    public function show()
+    {
+        $cupcake = (new CupcakeManager())->getId($_GET['id']);
+
+        return $this->twig->render('Cupcake/show.html.twig', [
+            'cupcake' => $cupcake
+        ]);
+    }
 }

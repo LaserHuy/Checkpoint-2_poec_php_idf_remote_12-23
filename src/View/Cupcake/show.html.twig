@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="main-container">
+        <h1>{{ cupcake.name }}</h1>
+        <div>
+            <img src={{ cupcake.url }}>
+        </div>
+    </div>
+{% endblock %}

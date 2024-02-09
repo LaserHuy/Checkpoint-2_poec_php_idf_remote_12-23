@@ -44,4 +44,14 @@ class CupcakeManager extends AbstractManager
         }
         return $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getId(int $id): array|false
+    {
+        $statement = $this->pdo->prepare("SELECT c.name, c.color1, c.color2, c.color3, a.url, a.id
+        FROM cupcake as c INNER JOIN accessory as a ON a.id = c.accessory_id WHERE a.id=:id");
+        $statement->bindValue('id', $id, PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
 }
